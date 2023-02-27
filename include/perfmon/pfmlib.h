@@ -635,6 +635,12 @@ typedef enum {
 	PFM_PMU_AMD64_FAM19H_ZEN4,	/* AMD AMD64 Fam19h Zen4 */
 	/* MUST ADD NEW PMU MODELS HERE */
 
+	PFM_PMU_ARM_CORTEX_A55,		/* ARM Cortex A55 (ARMv8) */
+	PFM_PMU_ARM_CORTEX_A76,		/* ARM Cortex A76 (ARMv8) */
+	PFM_PMU_ARM_CORTEX_A78,		/* ARM Cortex A78 (ARMv8) */
+	PFM_PMU_ARM_CORTEX_AX1,		/* ARM Cortex AX1 (ARMv8) */
+	PFM_PMU_ARM_CORTEX_A510,	/* ARM Cortex A510 (ARMv9) */
+	
 	PFM_PMU_MAX			/* end marker */
 } pfm_pmu_t;
 

@@ -735,6 +735,12 @@ extern pfmlib_pmu_t mips_74k_support;
 extern pfmlib_pmu_t s390x_cpum_cf_support;
 extern pfmlib_pmu_t s390x_cpum_sf_support;
 
+extern pfmlib_pmu_t arm_cortex_a55_support;
+extern pfmlib_pmu_t arm_cortex_a76_support;
+extern pfmlib_pmu_t arm_cortex_a78_support;
+extern pfmlib_pmu_t arm_cortex_aX1_support;
+extern pfmlib_pmu_t arm_cortex_a510_support;
+
 extern pfmlib_os_t *pfmlib_os;
 extern pfmlib_os_t pfmlib_os_perf;
 extern pfmlib_os_t pfmlib_os_perf_ext;
