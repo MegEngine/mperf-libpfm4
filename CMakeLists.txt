@@ -253,6 +253,34 @@ if(${MPERF_ARCH} STREQUAL aarch64)
                         lib/pfmlib_priv.h
                         lib/pfmlib_kunpeng_unc_perf_event.c
                         lib/pfmlib_tx2_unc_perf_event.c
+                        lib/events/arm_cortex_a17_events.h
+                        lib/events/arm_cortex_a32_events.h
+                        lib/events/arm_cortex_a34_events.h
+                        lib/events/arm_cortex_a35_events.h
+                        lib/events/arm_cortex_a5_events.h
+                        lib/events/arm_cortex_a65_events.h
+                        lib/events/arm_cortex_a710_events.h
+                        lib/events/arm_cortex_a715_events.h
+                        lib/events/arm_cortex_a72_events.h
+                        lib/events/arm_cortex_a73_events.h
+                        lib/events/arm_cortex_a75_events.h
+                        lib/events/arm_cortex_a76ae_events.h
+                        lib/events/arm_cortex_a77_events.h
+                        lib/events/arm_cortex_a78c_events.h
+                        lib/events/arm_cortex_r4_events.h
+                        lib/events/arm_cortex_r52_events.h
+                        lib/events/arm_cortex_r5_events.h
+                        lib/events/arm_cortex_r7_events.h
+                        lib/events/arm_cortex_r82_events.h
+                        lib/events/arm_cortex_r8_events.h
+                        lib/events/arm_cortex_x1_events.h
+                        lib/events/arm_cortex_x1c_events.h
+                        lib/events/arm_cortex_x2_events.h
+                        lib/events/arm_cortex_x3_events.h
+                        lib/events/arm_neoverse_e1_events.h
+                        lib/events/arm_neoverse_v1_events.h
+                        lib/events/arm_neoverse_v2_events.h
+                        lib/events/arm_rainier_events.h
     )
     add_library(pfm_aarch64 ${AARCH64_SOURCE})
     target_include_directories(pfm_aarch64 PRIVATE ${PROJECT_SOURCE_DIR}/third_party/libpfm4/include/)
@@ -269,10 +297,12 @@ if(${MPERF_ARCH} STREQUAL armv7)
                     lib/events/arm_cortex_a9_events.h
                     lib/events/arm_qcom_krait_events.h
                     lib/events/arm_xgene_events.h
+                    lib/events/arm_cortex_a34_events.h
                     lib/events/arm_cortex_a55_events.h
                     lib/events/arm_cortex_a76_events.h
                     lib/events/arm_cortex_a78_events.h
                     lib/events/arm_cortex_a510_events.h
+                    lib/events/arm_cortex_a710_events.h
                     lib/events/arm_cortex_aX1_events.h
                     lib/events/arm_cavium_tx2_events.h
                     lib/events/arm_marvell_tx2_unc_events.h
@@ -291,6 +321,35 @@ if(${MPERF_ARCH} STREQUAL armv7)
                     lib/pfmlib_priv.h
                     lib/pfmlib_kunpeng_unc_perf_event.c
                     lib/pfmlib_tx2_unc_perf_event.c
+                    lib/events/arm_1136_events.h
+                    lib/events/arm_cortex_a17_events.h
+                    lib/events/arm_cortex_a32_events.h
+                    lib/events/arm_cortex_a34_events.h
+                    lib/events/arm_cortex_a35_events.h
+                    lib/events/arm_cortex_a5_events.h
+                    lib/events/arm_cortex_a65_events.h
+                    lib/events/arm_cortex_a710_events.h
+                    lib/events/arm_cortex_a715_events.h
+                    lib/events/arm_cortex_a72_events.h
+                    lib/events/arm_cortex_a73_events.h
+                    lib/events/arm_cortex_a75_events.h
+                    lib/events/arm_cortex_a76ae_events.h
+                    lib/events/arm_cortex_a77_events.h
+                    lib/events/arm_cortex_a78c_events.h
+                    lib/events/arm_cortex_r4_events.h
+                    lib/events/arm_cortex_r52_events.h
+                    lib/events/arm_cortex_r5_events.h
+                    lib/events/arm_cortex_r7_events.h
+                    lib/events/arm_cortex_r82_events.h
+                    lib/events/arm_cortex_r8_events.h
+                    lib/events/arm_cortex_x1_events.h
+                    lib/events/arm_cortex_x1c_events.h
+                    lib/events/arm_cortex_x2_events.h
+                    lib/events/arm_cortex_x3_events.h
+                    lib/events/arm_neoverse_e1_events.h
+                    lib/events/arm_neoverse_v1_events.h
+                    lib/events/arm_neoverse_v2_events.h
+                    lib/events/arm_rainier_events.h
     )
     add_library(pfm_armv7 ${ARMV7_SOURCE})
     target_include_directories(pfm_armv7 PRIVATE ${PROJECT_SOURCE_DIR}/third_party/libpfm4/include/)

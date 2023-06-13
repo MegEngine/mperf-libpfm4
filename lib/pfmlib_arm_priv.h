@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2010 University of Tennessee
  * Contributed by Vince Weaver <vweaver1@utk.edu>
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -89,6 +89,7 @@ extern int pfm_arm_get_perf_encoding(void *this, pfmlib_event_desc_t *e);
 
 #define ARMV7_A7_ATTRS	(_ARM_ATTR_K|_ARM_ATTR_U|_ARM_ATTR_HV)
 #define ARMV7_A7_PLM	(PFM_PLM0|PFM_PLM3|PFM_PLMH)
+
 
 #define ARMV8_ATTRS	(_ARM_ATTR_K|_ARM_ATTR_U|_ARM_ATTR_HV)
 #define ARMV8_PLM	(PFM_PLM0|PFM_PLM3|PFM_PLMH)

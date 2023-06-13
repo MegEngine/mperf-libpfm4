@@ -7,7 +7,7 @@
 
  	  Copyright (c) 2001-2007 Hewlett-Packard Development Company, L.P.
 	                Contributed by Stephane Eranian <eranian@hpl.hp.com>
-	
+
 
 This package provides a library, called libpfm4 which is used to develop
 monitoring tools exploiting the performance monitoring events such as those
@@ -16,7 +16,7 @@ provided by the Performance Monitoring Unit (PMU) of modern processors.
 This is a complete rewrite of libpfm3 and it is NOT backward compatible
 with it.
 
-Libpfm4 helps convert from an event name, expressed as a string, to 
+Libpfm4 helps convert from an event name, expressed as a string, to
 the event encoding that is either the raw event as documented by HW vendor
 or the OS-specific encoding. In the latter case, the library is able to
 prepare the OS-specific data structures needed by the kernel to setup the
@@ -44,7 +44,7 @@ The library supports many PMUs. The current version can handle:
 		AMD64 Fam19h (Zen3) (core and L3)
 		AMD64 Fam19h (Zen4)
 
-	- For Intel X86: 
+	- For Intel X86:
 		Intel P6 (Pentium II, Pentium Pro, Pentium III, Pentium M)
 		Intel Yonah (Core Duo/Core Solo),
 		Intel Core (Merom, Penryn, Dunnington)
@@ -69,11 +69,43 @@ The library supports many PMUs. The current version can handle:
 		Intel architectural perfmon v1, v2, v3
 
 	- For ARM:
+		ARMV6 1136, 1176
+		
+		ARMV7 Cortex A5
 		ARMV7 Cortex A8
 		ARMV7 Cortex A9
 		ARMV7 Cortex A15
+		ARMV7 Cortex A17
+		ARMV7 Cortex R4
+		ARMV7 Cortex R5
+		ARMV7 Cortex R7
+		ARMV7 Cortex R8
+
+		ARMV8 Cortex A32
+		ARMV8 Cortex A34
+		ARMV8 Cortex A35
+		ARMV8 Cortex A65
+		ARMV8 Cortex A72
+		ARMV8 Cortex A73
+		ARMV8 Cortex A75
+		ARMV8 Cortex A76Ae
+		ARMV8 Cortex A77
+		ARMV8 Cortex A78C
+		ARMV8 Cortex R52
+		ARMV8 Cortex R82
+		ARMV8 Cortex X1
+		ARMV8 Cortex X1C
+		ARMV8 Neoverse E1
+		ARMV8 Neoverse V1
+		ARMV8 Rainier
 		ARMV8 Cortex A57, A53, A55, A76, A78, X1
+
 		ARMV9 Cortex A510
+		ARMV9 Cortex A710
+		ARMV9 Cortex A715
+		ARMV9 Cortex X2
+		ARMV9 Cortex X3
+		ARMV9 Neoverse V2
 		Applied Micro X-Gene
 		Qualcomm Krait
 		Fujitsu A64FX
