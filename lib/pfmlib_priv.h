@@ -202,7 +202,7 @@ typedef struct {
 	char	*forced_pmu;
 	char	*blacklist_pmus;
 	FILE 	*fp;	/* verbose and debug file descriptor, default stderr or PFMLIB_DEBUG_STDOUT */
-} pfmlib_config_t;	
+} pfmlib_config_t;
 
 #define PFMLIB_INITIALIZED()	(pfm_cfg.initdone && pfm_cfg.initret == PFM_SUCCESS)
 
@@ -656,6 +656,7 @@ extern pfmlib_pmu_t arm_cortex_a8_support;
 extern pfmlib_pmu_t arm_cortex_a9_support;
 extern pfmlib_pmu_t arm_cortex_a15_support;
 extern pfmlib_pmu_t arm_1176_support;
+extern pfmlib_pmu_t arm_1136_support;
 extern pfmlib_pmu_t arm_qcom_krait_support;
 extern pfmlib_pmu_t arm_cortex_a57_support;
 extern pfmlib_pmu_t arm_cortex_a53_support;
@@ -740,6 +741,35 @@ extern pfmlib_pmu_t arm_cortex_a76_support;
 extern pfmlib_pmu_t arm_cortex_a78_support;
 extern pfmlib_pmu_t arm_cortex_aX1_support;
 extern pfmlib_pmu_t arm_cortex_a510_support;
+
+extern pfmlib_pmu_t arm_cortex_a17_support;
+extern pfmlib_pmu_t arm_cortex_a5_support;
+extern pfmlib_pmu_t arm_cortex_r4_support;
+extern pfmlib_pmu_t arm_cortex_r5_support;
+extern pfmlib_pmu_t arm_cortex_r7_support;
+extern pfmlib_pmu_t arm_cortex_r8_support;
+extern pfmlib_pmu_t arm_cortex_a32_support;
+extern pfmlib_pmu_t arm_cortex_a34_support;
+extern pfmlib_pmu_t arm_cortex_a35_support;
+extern pfmlib_pmu_t arm_cortex_a65_support;
+extern pfmlib_pmu_t arm_cortex_a72_support;
+extern pfmlib_pmu_t arm_cortex_a73_support;
+extern pfmlib_pmu_t arm_cortex_a75_support;
+extern pfmlib_pmu_t arm_cortex_a76ae_support;
+extern pfmlib_pmu_t arm_cortex_a77_support;
+extern pfmlib_pmu_t arm_cortex_a78c_support;
+extern pfmlib_pmu_t arm_cortex_r52_support;
+extern pfmlib_pmu_t arm_cortex_r82_support;
+extern pfmlib_pmu_t arm_cortex_x1_support;
+extern pfmlib_pmu_t arm_cortex_x1c_support;
+extern pfmlib_pmu_t arm_neoverse_e1_support;
+extern pfmlib_pmu_t arm_neoverse_v1_support;
+extern pfmlib_pmu_t arm_rainier_support;
+extern pfmlib_pmu_t arm_cortex_a710_support;
+extern pfmlib_pmu_t arm_cortex_a715_support;
+extern pfmlib_pmu_t arm_cortex_x2_support;
+extern pfmlib_pmu_t arm_cortex_x3_support;
+extern pfmlib_pmu_t arm_neoverse_v2_support;
 
 extern pfmlib_os_t *pfmlib_os;
 extern pfmlib_os_t pfmlib_os_perf;

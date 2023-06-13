@@ -33,6 +33,7 @@
 #include "pfmlib_arm_priv.h"
 
 #include "events/arm_1176_events.h"        /* event tables */
+#include "events/arm_1136_events.h"        /* event tables */
 
 static int
 pfm_arm_detect_1176(void *this)
@@ -61,6 +62,48 @@ pfmlib_pmu_t arm_1176_support={
 	.pe			= arm_1176_pe,
 
 	.pmu_detect		= pfm_arm_detect_1176,
+	.max_encoding		= 1,
+	.num_cntrs		= 2,
+
+	.get_event_encoding[PFM_OS_NONE] = pfm_arm_get_encoding,
+	 PFMLIB_ENCODE_PERF(pfm_arm_get_perf_encoding),
+	.get_event_first	= pfm_arm_get_event_first,
+	.get_event_next		= pfm_arm_get_event_next,
+	.event_is_valid		= pfm_arm_event_is_valid,
+	.validate_table		= pfm_arm_validate_table,
+	.get_event_info		= pfm_arm_get_event_info,
+	.get_event_attr_info	= pfm_arm_get_event_attr_info,
+	 PFMLIB_VALID_PERF_PATTRS(pfm_arm_perf_validate_pattrs),
+	.get_event_nattrs	= pfm_arm_get_event_nattrs,
+};
+
+static int
+pfm_arm_detect_1136(void *this)
+{
+
+	int ret;
+
+	ret = pfm_arm_detect(this);
+	if (ret != PFM_SUCCESS)
+		return PFM_ERR_NOTSUPP;
+
+	if ((pfm_arm_cfg.implementer == 0x41) && /* ARM */
+			(pfm_arm_cfg.part==0xb36)) { /* 1136 */
+		return PFM_SUCCESS;
+	}
+	return PFM_ERR_NOTSUPP;
+}
+
+/* ARM1176 support */
+pfmlib_pmu_t arm_1136_support={
+	.desc			= "ARM1136",
+	.name			= "arm_1136",
+	.pmu			= PFM_PMU_ARM_1136,
+	.pme_count		= LIBPFM_ARRAY_SIZE(arm_1136_pe),
+	.type			= PFM_PMU_TYPE_CORE,
+	.pe			= arm_1136_pe,
+
+	.pmu_detect		= pfm_arm_detect_1136,
 	.max_encoding		= 1,
 	.num_cntrs		= 2,
 

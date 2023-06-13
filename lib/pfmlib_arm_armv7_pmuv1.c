@@ -1,9 +1,9 @@
 /*
  * pfmlib_arm_armv7_pmuv1.c : 	support for ARMV7 chips
- * 
+ *
  * Copyright (c) 2010 University of Tennessee
  * Contributed by Vince Weaver <vweaver1@utk.edu>
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -20,7 +20,7 @@
  * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- * 
+ *
  */
 
 #include <sys/types.h>
@@ -38,6 +38,13 @@
 #include "events/arm_cortex_a9_events.h"
 #include "events/arm_cortex_a15_events.h"
 #include "events/arm_qcom_krait_events.h"
+
+#include "events/arm_cortex_a5_events.h"
+#include "events/arm_cortex_a17_events.h"
+#include "events/arm_cortex_r4_events.h"
+#include "events/arm_cortex_r5_events.h"
+#include "events/arm_cortex_r7_events.h"
+#include "events/arm_cortex_r8_events.h"
 
 static int
 pfm_arm_detect_cortex_a7(void *this)
@@ -129,6 +136,251 @@ pfm_arm_detect_krait(void *this)
 	return PFM_ERR_NOTSUPP;
 }
 
+static int
+pfm_arm_detect_cortex_a17(void *this)
+{
+	int ret;
+
+	ret = pfm_arm_detect(this);
+	if (ret != PFM_SUCCESS)
+		return PFM_ERR_NOTSUPP;
+
+	if ((pfm_arm_cfg.implementer == 0x41) && /* ARM */
+		(pfm_arm_cfg.part == 0xc0e)) { /* CORTEX A17 */
+			return PFM_SUCCESS;
+	}
+	return PFM_ERR_NOTSUPP;
+}
+
+static int
+pfm_arm_detect_cortex_a5(void *this)
+{
+	int ret;
+
+	ret = pfm_arm_detect(this);
+	if (ret != PFM_SUCCESS)
+		return PFM_ERR_NOTSUPP;
+
+	if ((pfm_arm_cfg.implementer == 0x41) && /* ARM */
+		(pfm_arm_cfg.part == 0xc05)) { /* CORTEX A5 */
+			return PFM_SUCCESS;
+	}
+	return PFM_ERR_NOTSUPP;
+}
+
+static int
+pfm_arm_detect_cortex_r4(void *this)
+{
+	int ret;
+
+	ret = pfm_arm_detect(this);
+	if (ret != PFM_SUCCESS)
+		return PFM_ERR_NOTSUPP;
+
+	if ((pfm_arm_cfg.implementer == 0x41) && /* ARM */
+		(pfm_arm_cfg.part == 0xc14)) { /* CORTEX R4 */
+			return PFM_SUCCESS;
+	}
+	return PFM_ERR_NOTSUPP;
+}
+
+static int
+pfm_arm_detect_cortex_r5(void *this)
+{
+	int ret;
+
+	ret = pfm_arm_detect(this);
+	if (ret != PFM_SUCCESS)
+		return PFM_ERR_NOTSUPP;
+
+	if ((pfm_arm_cfg.implementer == 0x41) && /* ARM */
+		(pfm_arm_cfg.part == 0xc15)) { /* CORTEX R5 */
+			return PFM_SUCCESS;
+	}
+	return PFM_ERR_NOTSUPP;
+}
+
+static int
+pfm_arm_detect_cortex_r7(void *this)
+{
+	int ret;
+
+	ret = pfm_arm_detect(this);
+	if (ret != PFM_SUCCESS)
+		return PFM_ERR_NOTSUPP;
+
+	if ((pfm_arm_cfg.implementer == 0x41) && /* ARM */
+		(pfm_arm_cfg.part == 0xc17)) { /* CORTEX R7 */
+			return PFM_SUCCESS;
+	}
+	return PFM_ERR_NOTSUPP;
+}
+
+static int
+pfm_arm_detect_cortex_r8(void *this)
+{
+	int ret;
+
+	ret = pfm_arm_detect(this);
+	if (ret != PFM_SUCCESS)
+		return PFM_ERR_NOTSUPP;
+
+	if ((pfm_arm_cfg.implementer == 0x41) && /* ARM */
+		(pfm_arm_cfg.part == 0xc18)) { /* CORTEX R8 */
+			return PFM_SUCCESS;
+	}
+	return PFM_ERR_NOTSUPP;
+}
+
+/* ARM CORTEX A17 support */
+pfmlib_pmu_t arm_cortex_a17_support={
+	.desc			= "ARM CORTEX A17",
+	.name			= "arm_a17",
+	.pmu			= PFM_PMU_ARM_CORTEX_A17,
+	.pme_count		= LIBPFM_ARRAY_SIZE(arm_cortex_a17_pe),
+	.type			= PFM_PMU_TYPE_CORE,
+	.pe			= arm_cortex_a17_pe,
+
+	.pmu_detect		= pfm_arm_detect_cortex_a17,
+	.max_encoding		= 1,
+	.num_cntrs		= 6,
+
+	.get_event_encoding[PFM_OS_NONE] = pfm_arm_get_encoding,
+	 PFMLIB_ENCODE_PERF(pfm_arm_get_perf_encoding),
+	.get_event_first	= pfm_arm_get_event_first,
+	.get_event_next		= pfm_arm_get_event_next,
+	.event_is_valid		= pfm_arm_event_is_valid,
+	.validate_table		= pfm_arm_validate_table,
+	.get_event_info		= pfm_arm_get_event_info,
+	.get_event_attr_info	= pfm_arm_get_event_attr_info,
+	 PFMLIB_VALID_PERF_PATTRS(pfm_arm_perf_validate_pattrs),
+	.get_event_nattrs	= pfm_arm_get_event_nattrs,
+};
+
+/* ARM CORTEX A5 support */
+pfmlib_pmu_t arm_cortex_a5_support={
+	.desc			= "ARM CORTEX A5",
+	.name			= "arm_a5",
+	.pmu			= PFM_PMU_ARM_CORTEX_A5,
+	.pme_count		= LIBPFM_ARRAY_SIZE(arm_cortex_a5_pe),
+	.type			= PFM_PMU_TYPE_CORE,
+	.pe			= arm_cortex_a5_pe,
+
+	.pmu_detect		= pfm_arm_detect_cortex_a5,
+	.max_encoding		= 1,
+	.num_cntrs		= 2,
+
+	.get_event_encoding[PFM_OS_NONE] = pfm_arm_get_encoding,
+	 PFMLIB_ENCODE_PERF(pfm_arm_get_perf_encoding),
+	.get_event_first	= pfm_arm_get_event_first,
+	.get_event_next		= pfm_arm_get_event_next,
+	.event_is_valid		= pfm_arm_event_is_valid,
+	.validate_table		= pfm_arm_validate_table,
+	.get_event_info		= pfm_arm_get_event_info,
+	.get_event_attr_info	= pfm_arm_get_event_attr_info,
+	 PFMLIB_VALID_PERF_PATTRS(pfm_arm_perf_validate_pattrs),
+	.get_event_nattrs	= pfm_arm_get_event_nattrs,
+};
+
+/* ARM CORTEX R4 support */
+pfmlib_pmu_t arm_cortex_r4_support={
+	.desc			= "ARM CORTEX R4",
+	.name			= "arm_r4",
+	.pmu			= PFM_PMU_ARM_CORTEX_R4,
+	.pme_count		= LIBPFM_ARRAY_SIZE(arm_cortex_r4_pe),
+	.type			= PFM_PMU_TYPE_CORE,
+	.pe			= arm_cortex_r4_pe,
+
+	.pmu_detect		= pfm_arm_detect_cortex_r4,
+	.max_encoding		= 1,
+	.num_cntrs		= 3,
+
+	.get_event_encoding[PFM_OS_NONE] = pfm_arm_get_encoding,
+	 PFMLIB_ENCODE_PERF(pfm_arm_get_perf_encoding),
+	.get_event_first	= pfm_arm_get_event_first,
+	.get_event_next		= pfm_arm_get_event_next,
+	.event_is_valid		= pfm_arm_event_is_valid,
+	.validate_table		= pfm_arm_validate_table,
+	.get_event_info		= pfm_arm_get_event_info,
+	.get_event_attr_info	= pfm_arm_get_event_attr_info,
+	 PFMLIB_VALID_PERF_PATTRS(pfm_arm_perf_validate_pattrs),
+	.get_event_nattrs	= pfm_arm_get_event_nattrs,
+};
+
+/* ARM CORTEX R5 support */
+pfmlib_pmu_t arm_cortex_r5_support={
+	.desc			= "ARM CORTEX R5",
+	.name			= "arm_r5",
+	.pmu			= PFM_PMU_ARM_CORTEX_R5,
+	.pme_count		= LIBPFM_ARRAY_SIZE(arm_cortex_r5_pe),
+	.type			= PFM_PMU_TYPE_CORE,
+	.pe			= arm_cortex_r5_pe,
+
+	.pmu_detect		= pfm_arm_detect_cortex_r5,
+	.max_encoding		= 1,
+	.num_cntrs		= 3,
+
+	.get_event_encoding[PFM_OS_NONE] = pfm_arm_get_encoding,
+	 PFMLIB_ENCODE_PERF(pfm_arm_get_perf_encoding),
+	.get_event_first	= pfm_arm_get_event_first,
+	.get_event_next		= pfm_arm_get_event_next,
+	.event_is_valid		= pfm_arm_event_is_valid,
+	.validate_table		= pfm_arm_validate_table,
+	.get_event_info		= pfm_arm_get_event_info,
+	.get_event_attr_info	= pfm_arm_get_event_attr_info,
+	 PFMLIB_VALID_PERF_PATTRS(pfm_arm_perf_validate_pattrs),
+	.get_event_nattrs	= pfm_arm_get_event_nattrs,
+};
+
+/* ARM CORTEX R7 support */
+pfmlib_pmu_t arm_cortex_r7_support={
+	.desc			= "ARM CORTEX R7",
+	.name			= "arm_r7",
+	.pmu			= PFM_PMU_ARM_CORTEX_R7,
+	.pme_count		= LIBPFM_ARRAY_SIZE(arm_cortex_r7_pe),
+	.type			= PFM_PMU_TYPE_CORE,
+	.pe			= arm_cortex_r7_pe,
+
+	.pmu_detect		= pfm_arm_detect_cortex_r7,
+	.max_encoding		= 1,
+	.num_cntrs		= 8,
+
+	.get_event_encoding[PFM_OS_NONE] = pfm_arm_get_encoding,
+	 PFMLIB_ENCODE_PERF(pfm_arm_get_perf_encoding),
+	.get_event_first	= pfm_arm_get_event_first,
+	.get_event_next		= pfm_arm_get_event_next,
+	.event_is_valid		= pfm_arm_event_is_valid,
+	.validate_table		= pfm_arm_validate_table,
+	.get_event_info		= pfm_arm_get_event_info,
+	.get_event_attr_info	= pfm_arm_get_event_attr_info,
+	 PFMLIB_VALID_PERF_PATTRS(pfm_arm_perf_validate_pattrs),
+	.get_event_nattrs	= pfm_arm_get_event_nattrs,
+};
+
+/* ARM CORTEX R8 support */
+pfmlib_pmu_t arm_cortex_r8_support={
+	.desc			= "ARM CORTEX R8",
+	.name			= "arm_r8",
+	.pmu			= PFM_PMU_ARM_CORTEX_R8,
+	.pme_count		= LIBPFM_ARRAY_SIZE(arm_cortex_r8_pe),
+	.type			= PFM_PMU_TYPE_CORE,
+	.pe			= arm_cortex_r8_pe,
+
+	.pmu_detect		= pfm_arm_detect_cortex_r8,
+	.max_encoding		= 1,
+	.num_cntrs		= 8,
+
+	.get_event_encoding[PFM_OS_NONE] = pfm_arm_get_encoding,
+	 PFMLIB_ENCODE_PERF(pfm_arm_get_perf_encoding),
+	.get_event_first	= pfm_arm_get_event_first,
+	.get_event_next		= pfm_arm_get_event_next,
+	.event_is_valid		= pfm_arm_event_is_valid,
+	.validate_table		= pfm_arm_validate_table,
+	.get_event_info		= pfm_arm_get_event_info,
+	.get_event_attr_info	= pfm_arm_get_event_attr_info,
+	 PFMLIB_VALID_PERF_PATTRS(pfm_arm_perf_validate_pattrs),
+	.get_event_nattrs	= pfm_arm_get_event_nattrs,
+};
 
 /* Cortex A7 support */
 pfmlib_pmu_t arm_cortex_a7_support={
