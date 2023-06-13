@@ -231,6 +231,7 @@ endif()
 
 if(${MPERF_ARCH} STREQUAL aarch64)
     file(GLOB_RECURSE AARCH64_SOURCE lib/events/arm_cortex_a53_events.h
+                        lib/events/arm_cortex_a34_events.h
                         lib/events/arm_cortex_a57_events.h
                         lib/events/arm_cortex_a55_events.h
                         lib/events/arm_cortex_a76_events.h
@@ -269,6 +270,7 @@ if(${MPERF_ARCH} STREQUAL armv7)
                     lib/events/arm_cortex_a9_events.h
                     lib/events/arm_qcom_krait_events.h
                     lib/events/arm_xgene_events.h
+                    lib/events/arm_cortex_a34_events.h
                     lib/events/arm_cortex_a55_events.h
                     lib/events/arm_cortex_a76_events.h
                     lib/events/arm_cortex_a78_events.h

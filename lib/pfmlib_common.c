@@ -494,6 +494,7 @@ static pfmlib_pmu_t *pfmlib_pmus[]=
 	&arm_cortex_a8_support,
 	&arm_cortex_a9_support,
 	&arm_cortex_a15_support,
+	&arm_cortex_a34_support,
 	&arm_1176_support,
 	&arm_qcom_krait_support,
 	&arm_cortex_a57_support,
@@ -567,6 +568,7 @@ static pfmlib_pmu_t *pfmlib_pmus[]=
 	&arm_hisilicon_kunpeng_sccl7_l3c23_support,
 #endif
 #ifdef CONFIG_PFMLIB_ARCH_ARM64
+	&arm_cortex_a34_support,
 	&arm_cortex_a55_support,
 	&arm_cortex_a76_support,
 	&arm_cortex_a78_support,
@@ -1124,7 +1126,7 @@ pfmlib_init_pmus(void)
 	pfmlib_pmu_t *p;
 	int i, ret;
 	int nsuccess = 0;
-	
+
 	/*
 	 * activate all detected PMUs
 	 * when forced, only the designated PMU
@@ -1230,7 +1232,7 @@ pfm_initialize(void)
 	 * generic sanity checks
 	 */
 	if (PFM_PMU_MAX & (~PFMLIB_PMU_MASK)) {
-		DPRINT("PFM_PMU_MAX exceeds PFMLIB_PMU_MASK\n");	
+		DPRINT("PFM_PMU_MAX exceeds PFMLIB_PMU_MASK\n");
 		ret = PFM_ERR_NOTSUPP;
 	} else {
 
@@ -2259,7 +2261,7 @@ pfm_get_pmu_info(pfm_pmu_t pmuid, pfm_pmu_info_t *uinfo)
 	sz = pfmlib_check_struct(uinfo, uinfo->size, PFM_PMU_INFO_ABI0, sz);
 	if (!sz)
 		return PFM_ERR_INVAL;
- 
+
 	pmu = pfmlib_pmus_map[pmuid];
 	if (!pmu)
 		return PFM_ERR_NOTSUPP;

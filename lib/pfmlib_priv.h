@@ -202,7 +202,7 @@ typedef struct {
 	char	*forced_pmu;
 	char	*blacklist_pmus;
 	FILE 	*fp;	/* verbose and debug file descriptor, default stderr or PFMLIB_DEBUG_STDOUT */
-} pfmlib_config_t;	
+} pfmlib_config_t;
 
 #define PFMLIB_INITIALIZED()	(pfm_cfg.initdone && pfm_cfg.initret == PFM_SUCCESS)
 
@@ -735,6 +735,7 @@ extern pfmlib_pmu_t mips_74k_support;
 extern pfmlib_pmu_t s390x_cpum_cf_support;
 extern pfmlib_pmu_t s390x_cpum_sf_support;
 
+extern pfmlib_pmu_t arm_cortex_a34_support;
 extern pfmlib_pmu_t arm_cortex_a55_support;
 extern pfmlib_pmu_t arm_cortex_a76_support;
 extern pfmlib_pmu_t arm_cortex_a78_support;
