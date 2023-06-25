@@ -69,11 +69,41 @@ The library supports many PMUs. The current version can handle:
 		Intel architectural perfmon v1, v2, v3
 
 	- For ARM:
+		ARMV7 Cortex A5
 		ARMV7 Cortex A8
 		ARMV7 Cortex A9
 		ARMV7 Cortex A15
-		ARMV8 Cortex A34, A57, A53, A55, A76, A78, X1
-		ARMV9 Cortex A510, A710
+		ARMV7 Cortex A17
+		ARMV7 Cortex R4
+		ARMV7 Cortex R5
+		ARMV7 Cortex R7
+		ARMV7 Cortex R8
+
+		ARMV8 Cortex A32
+		ARMV8 Cortex A34
+		ARMV8 Cortex A35
+		ARMV8 Cortex A65
+		ARMV8 Cortex A72
+		ARMV8 Cortex A73
+		ARMV8 Cortex A75
+		ARMV8 Cortex A76Ae
+		ARMV8 Cortex A77
+		ARMV8 Cortex A78C
+		ARMV8 Cortex R52
+		ARMV8 Cortex R82
+		ARMV8 Cortex X1
+		ARMV8 Cortex X1C
+		ARMV8 Neoverse E1
+		ARMV8 Neoverse V1
+		ARMV8 Rainier
+		ARMV8 Cortex A57, A53, A55, A76, A78, X1
+		
+		ARMV9 Cortex A510
+		ARMV9 Cortex A710
+		ARMV9 Cortex A715
+		ARMV9 Cortex X2
+		ARMV9 Cortex X3
+		ARMV9 Neoverse V2
 		Applied Micro X-Gene
 		Qualcomm Krait
 		Fujitsu A64FX
