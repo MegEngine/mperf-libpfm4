@@ -741,6 +741,7 @@ extern pfmlib_pmu_t arm_cortex_a76_support;
 extern pfmlib_pmu_t arm_cortex_a78_support;
 extern pfmlib_pmu_t arm_cortex_aX1_support;
 extern pfmlib_pmu_t arm_cortex_a510_support;
+extern pfmlib_pmu_t arm_cortex_a710_support;
 
 extern pfmlib_os_t *pfmlib_os;
 extern pfmlib_os_t pfmlib_os_perf;

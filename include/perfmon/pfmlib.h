@@ -641,7 +641,8 @@ typedef enum {
 	PFM_PMU_ARM_CORTEX_AX1,		/* ARM Cortex AX1 (ARMv8) */
 	PFM_PMU_ARM_CORTEX_A510,	/* ARM Cortex A510 (ARMv9) */
 
-	PFM_PMU_ARM_CORTEX_A34,     /* ARM Cortex A532 (ARMv8) */
+	PFM_PMU_ARM_CORTEX_A34,     /* ARM Cortex A34 (ARMv8) */
+	PFM_PMU_ARM_CORTEX_A710,    /* ARM Cortex A710 (ARMv9) */
 
 	PFM_PMU_MAX			/* end marker */
 } pfm_pmu_t;

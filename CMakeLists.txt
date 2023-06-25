@@ -237,6 +237,7 @@ if(${MPERF_ARCH} STREQUAL aarch64)
                         lib/events/arm_cortex_a76_events.h
                         lib/events/arm_cortex_a78_events.h
                         lib/events/arm_cortex_a510_events.h
+                        lib/events/arm_cortex_a710_events.h
                         lib/events/arm_cortex_aX1_events.h
                         lib/events/arm_xgene_events.h
                         lib/events/arm_cavium_tx2_events.h
@@ -275,6 +276,7 @@ if(${MPERF_ARCH} STREQUAL armv7)
                     lib/events/arm_cortex_a76_events.h
                     lib/events/arm_cortex_a78_events.h
                     lib/events/arm_cortex_a510_events.h
+                    lib/events/arm_cortex_a710_events.h
                     lib/events/arm_cortex_aX1_events.h
                     lib/events/arm_cavium_tx2_events.h
                     lib/events/arm_marvell_tx2_unc_events.h
