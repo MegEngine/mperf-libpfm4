@@ -503,7 +503,7 @@ pfmlib_pmu_t arm_cortex_a510_support={
 /* ARM Cortex A710 support */
 pfmlib_pmu_t arm_cortex_a710_support={
 	.desc			= "ARM Cortex A710",
-	.name			= "arm_ac510",
+	.name			= "arm_ac710",
 	.pmu			= PFM_PMU_ARM_CORTEX_A710,
 	.pme_count		= LIBPFM_ARRAY_SIZE(arm_cortex_a710_pe),
 	.type			= PFM_PMU_TYPE_CORE,
